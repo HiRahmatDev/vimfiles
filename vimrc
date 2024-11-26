@@ -11,6 +11,7 @@ set shell=pwsh		    " shell or terminal with Powershell 7
 set fileformats=unix	    " force EOL to LF instead of CRLF
 set scrolloff=2		    " always keep a few lines around the cursor
 set smartindent		    " auto indent based on programming lang
+set ruler
 
 " show (|) & (*) char for link or tag in vim
 " example |bar| & *bar*
