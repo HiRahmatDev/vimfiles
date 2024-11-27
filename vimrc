@@ -34,5 +34,11 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
-" I want to able undo partially after delete word in mode insert (i_CTRL-U)
+" Able to undo partially after delete word & line in insert mode (i_CTRL-U & i_CTRL_W)
 inoremap <C-W> <C-G>u<C-W>
+inoremap <C-U> <C-G>u<C-U>
+
+" set timeout	    " default is on
+set timeoutlen=20   " in ms. Because of nottimeout, this applied to mappings & keycodes
+imap jk <Esc>
+imap kj <Esc>
