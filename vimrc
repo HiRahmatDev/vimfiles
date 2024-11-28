@@ -13,10 +13,12 @@ set display=truncate
 set ruler
 set number relativenumber
 set hlsearch incsearch
+set laststatus=2
 set mouse=
 set shell=pwsh
 set shiftwidth=2 softtabstop=2 noexpandtab
 set smartindent
+set splitbelow splitright
 set wildmenu
 
 set nrformats-=octal    " avoid octal behavior when inc or dec number (CTRL-A or CTRL-X)
@@ -30,10 +32,9 @@ if &t_Co > 1	        " check if the terminal support color
   syntax enable
 endif
 
-filetype plugin on
-
 " show (|) & (*) char for link or tag in vim
 " example |bar| & *bar*, it's my preference, I like it
+set conceallevel=0
 hi link HelpBar Normal
 hi link HelpStar Normal
 
@@ -58,3 +59,4 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap <C-W> <C-G>u<C-W>
 inoremap <C-U> <C-G>u<C-U>
+
