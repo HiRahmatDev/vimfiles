@@ -10,22 +10,22 @@ let g:netrw_liststyle=3
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 
-set nocompatible
 set backspace=indent,start
 set display=truncate
-set ruler
-set number relativenumber
 set hlsearch incsearch
 set laststatus=2
 set mouse=
+set nocompatible
+set nrformats-=octal		  " avoid octal behavior when inc or dec number (CTRL-A or CTRL-X)
+set number relativenumber
+set ruler
+set scrolloff=2			  " always keep a 2 lines around the cursor
+set sessionoptions+=unix,slash	  " force saving session file format to unix
 set shell=pwsh
 set shiftwidth=2 softtabstop=2 noexpandtab
 set smartindent
 set splitbelow splitright
 set wildmenu
-
-set nrformats-=octal    " avoid octal behavior when inc or dec number (CTRL-A or CTRL-X)
-set scrolloff=2		" always keep a few lines around the cursor
 
 " force EOL to LF
 set fileformat=unix
