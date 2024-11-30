@@ -2,16 +2,28 @@
 " source $VIMRUNTIME/defaults.vim    " Run defaults.vim
 
 " ----- My configs -----
+filetype plugin indent on
+
+if &t_Co > 1	        " check if the terminal support color
+  syntax enable
+endif
+
+" If you forget what is this, type this :h 05.2, 142gg (line 142)
+if has('syntax') && has('eval')
+  " built-in vim package 'matchinit' is make the command '%' more powerful
+  " require 'filetype plugin on'
+  packadd! matchit
+endif
+
 let g:netrw_banner=0
 let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
-set fillchars-=eob:~
-set fillchars+=eob:\ 
-
 set backspace=indent,start
 set display=truncate
+set fillchars-=eob:~
+set fillchars+=eob:\ 
 set hlsearch incsearch
 set laststatus=2
 set mouse=
@@ -31,22 +43,6 @@ set wildmenu
 set fileformat=unix
 set fileformats=unix
 
-if &t_Co > 1	        " check if the terminal support color
-  syntax enable
-endif
-
-" show (|) & (*) char for link or tag in vim
-" example |bar| & *bar*, it's my preference, I like it
-set conceallevel=0
-hi link HelpBar Normal
-hi link HelpStar Normal
-
-" If you forget what is this, type this :h 05.2, 142gg (line 142)
-if has('syntax') && has('eval')
-  " built-in vim package 'matchinit' is make the command '%' more powerful
-  packadd! matchit
-endif
-
 " ----- My Mappings ------
 " set timeout	    " default is on
 set timeoutlen=500   " in ms. Because of nottimeout, this applied to mappings & keycodes
@@ -62,4 +58,3 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap <C-W> <C-G>u<C-W>
 inoremap <C-U> <C-G>u<C-U>
-

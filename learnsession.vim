@@ -102,8 +102,7 @@ else
   set shortmess=aoO
 endif
 badd +1 vimrc
-badd +70 learnsession.vim
-badd +1 README.md
+badd +1 .vimrc.swp
 argglobal
 %argdel
 edit vimrc
@@ -123,12 +122,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 82 + 96) / 192)
-exe 'vert 2resize ' . ((&columns * 109 + 96) / 192)
+exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
+exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
 argglobal
 enew | setl bt=help
-help 21.5@en
-balt vimrc
+help 22.1@en
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -152,8 +150,8 @@ setlocal complete=.,w,b,u,t,i
 setlocal completefunc=
 setlocal completeopt=
 setlocal completeslash=
-setlocal concealcursor=
-setlocal conceallevel=0
+setlocal concealcursor=nc
+setlocal conceallevel=2
 setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
@@ -184,7 +182,7 @@ setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatoptions=tcq
+setlocal formatoptions=tcroql
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
@@ -195,7 +193,7 @@ setlocal indentexpr=
 setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=!-~,^*,^|,^\",192-255
-setlocal keywordprg=
+setlocal keywordprg=:help
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispoptions=
@@ -266,15 +264,27 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 449 - ((44 * winheight(0) + 23) / 47)
+let s:l = 130 - ((39 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 449
-normal! 0
+keepjumps 130
+normal! 016|
+lcd ~/vimfiles
 wincmd w
 argglobal
-balt learnsession.vim
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*end\(f\%[unction]\|\(export\s\+\)\?def\)\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*end\(f\%[unction]\|\(export\s\+\)\?def\)\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*\(fu\%[nction]\|\(export\s\+\)\?def\)\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*\(fu\%[nction]\|\(export\s\+\)\?def\)\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('\%(^\s*".*\n\)\@<!\%(^\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('\%(^\s*".*\n\)\@<!\%(^\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*end\(f\%[unction]\|\(export\s\+\)\?def\)\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*end\(f\%[unction]\|\(export\s\+\)\?def\)\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*\(fu\%[nction]\|\(export\s\+\)\?def\)\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*\(fu\%[nction]\|\(export\s\+\)\?def\)\>', "W")
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -292,8 +302,8 @@ setlocal cinoptions=
 setlocal cinscopedecls=public,protected,private
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*\ %s\ */
+setlocal comments=sO:#\ -,mO:#\ \ ,eO:##,:#\\\ ,:#,sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"\\\ ,:\"
+setlocal commentstring=\"%s
 setlocal complete=.,w,b,u,t,i
 setlocal completefunc=
 setlocal completeopt=
@@ -306,7 +316,7 @@ setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
 setlocal cursorlineopt=both
-setlocal define=
+setlocal define=\\v^\\s*export\\s*(def|const|var|final)
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
@@ -335,13 +345,13 @@ setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=
+setlocal include=\\v^\\s*import\\s*(autoload)?
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal indentexpr=g:VimIndent()
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,=endif,=enddef,=endfu,=endfor,=endwh,=endtry,=endclass,=endinterface,=endenum,=},=else,=cat,=finall,=END,0\\,0=\"\\\ ,0=#\\\ 
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
+setlocal keywordprg=:help
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispoptions=
@@ -396,7 +406,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal thesaurusfunc=
 setlocal noundofile
@@ -412,15 +422,16 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((18 * winheight(0) + 23) / 47)
+let s:l = 24 - ((11 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 21
-normal! 09|
+keepjumps 24
+normal! 015|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 82 + 96) / 192)
-exe 'vert 2resize ' . ((&columns * 109 + 96) / 192)
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
+exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
