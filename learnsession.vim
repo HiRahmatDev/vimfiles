@@ -71,7 +71,6 @@ set fileencodings=ucs-bom,utf-8,default,latin1
 set fileformats=unix
 set fillchars=vert:|,fold:-,lastline:@,eob:\ 
 set helplang=En
-set hlsearch
 set incsearch
 set laststatus=2
 set mouse=
@@ -127,6 +126,7 @@ exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
 argglobal
 enew | setl bt=help
 help 22.1@en
+balt vimrc
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -264,11 +264,11 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 130 - ((39 * winheight(0) + 21) / 42)
+let s:l = 134 - ((44 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 130
+keepjumps 134
 normal! 016|
 lcd ~/vimfiles
 wincmd w
@@ -422,14 +422,13 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 24 - ((11 * winheight(0) + 21) / 42)
+let s:l = 28 - ((27 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 24
+keepjumps 28
 normal! 015|
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
 tabnext 1

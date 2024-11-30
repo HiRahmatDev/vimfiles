@@ -2,11 +2,9 @@
 " source $VIMRUNTIME/defaults.vim    " Run defaults.vim
 
 " ----- My configs -----
+set t_Co=256
 filetype plugin indent on
-
-if &t_Co > 1	        " check if the terminal support color
-  syntax enable
-endif
+syntax enable
 
 " If you forget what is this, type this :h 05.2, 142gg (line 142)
 if has('syntax') && has('eval')
@@ -14,6 +12,8 @@ if has('syntax') && has('eval')
   " require 'filetype plugin on'
   packadd! matchit
 endif
+
+colorscheme PaperColor
 
 let g:netrw_banner=0
 let g:netrw_browse_split=4
@@ -24,7 +24,7 @@ set backspace=indent,start
 set display=truncate
 set fillchars-=eob:~
 set fillchars+=eob:\ 
-set hlsearch incsearch
+set nohlsearch incsearch
 set laststatus=2
 set mouse=
 set nocompatible
