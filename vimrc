@@ -14,6 +14,8 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+let g:airline_theme='wombat'
+
 let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default': {
@@ -41,6 +43,7 @@ set laststatus=2
 set mouse=
 set nrformats-=octal		  " avoid octal behavior when inc or dec number (CTRL-A or CTRL-X)
 set nowrap sidescroll=5
+set noshowmode
 set number relativenumber
 set path+=**
 set ruler

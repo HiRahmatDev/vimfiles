@@ -1,6 +1,13 @@
 [submodule "colorscheme PaperColor"]
 	path = pack/colors/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
+
 [submodule "tpope/vim-fugitive"]
 	path = pack/tpope/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-airline/vim-airline"]
+	path = pack/vim-airline/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim-airline/vim-airline-themes"]
+	path = pack/vim-airline/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
