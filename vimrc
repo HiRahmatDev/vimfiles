@@ -2,23 +2,28 @@
 " source $VIMRUNTIME/defaults.vim    " Run defaults.vim
 
 " ----- My configs -----
-set t_Co=256
-filetype plugin indent on
+set nocompatible
+
 syntax enable
+filetype plugin indent on
 
-" If you forget what is this, type this :h 05.2, 142gg (line 142)
-if has('syntax') && has('eval')
-  " built-in vim package 'matchinit' is make the command '%' more powerful
-  " require 'filetype plugin on'
-  packadd! matchit
-endif
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 0
+  \     }
+  \   }
+  \ }
 
+set termguicolors
+set background=dark
 colorscheme PaperColor
 
-let g:netrw_banner=0
 let g:netrw_browse_split=4
-let g:netrw_altv=1
 let g:netrw_liststyle=3
+let g:netrw_preview=1
+let g:netrw_alto=0
+let g:netrw_altv=1
 
 set backspace=indent,start
 set display=truncate
@@ -27,9 +32,10 @@ set fillchars+=eob:\
 set nohlsearch incsearch
 set laststatus=2
 set mouse=
-set nocompatible
 set nrformats-=octal		  " avoid octal behavior when inc or dec number (CTRL-A or CTRL-X)
+set nowrap sidescroll=5
 set number relativenumber
+set path+=**
 set ruler
 set scrolloff=2			  " always keep a 2 lines around the cursor
 set sessionoptions+=unix,slash	  " force saving session file format to unix
@@ -47,10 +53,22 @@ set fileformats=unix
 " set timeout	    " default is on
 set timeoutlen=500   " in ms. Because of nottimeout, this applied to mappings & keycodes
 
+" If you forget what is this, type this :h 05.2, 142gg (line 142)
+if has('syntax') && has('eval')
+  " built-in vim package 'matchinit' is make the command '%' more powerful
+  " require 'filetype plugin on'
+  packadd! matchit
+endif
+
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Lexplore
+" augroup END
+
 " Normal mode mapping
 nnoremap <Leader>" i"<Esc>ea"<Esc>
 nnoremap <Leader>' i'<Esc>ea'<Esc>
-nnoremap ff :20Le<CR>
+nnoremap ff :20Lexplore<CR>
 nnoremap <Leader>r :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
 
 " Insert mode mapping

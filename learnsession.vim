@@ -22,7 +22,7 @@ omap <silent> ]% <Plug>(MatchitOperationMultiForward)
 xmap <silent> ]% <Plug>(MatchitVisualMultiForward)
 nmap <silent> ]% <Plug>(MatchitNormalMultiForward)
 xmap a% <Plug>(MatchitVisualTextObject)
-nnoremap ff :20Le
+nnoremap ff :Lexplore
 omap <silent> g% <Plug>(MatchitOperationBackward)
 xmap <silent> g% <Plug>(MatchitVisualBackward)
 nmap <silent> g% <Plug>(MatchitNormalBackward)
@@ -51,8 +51,8 @@ vmap <S-Insert> "-d"*P
 nmap <S-Insert> "*P
 inoremap  u
 inoremap  u
-nmap Îu <C-End>
 nmap Îw <C-Home>
+nmap Îu <C-End>
 vmap ÎØ "*d
 vmap Î× "*d
 vmap ÎÕ "*y
@@ -75,6 +75,7 @@ set incsearch
 set laststatus=2
 set mouse=
 set nrformats=bin,hex
+set path=.,,,**
 set ruler
 set runtimepath=~/vimfiles,C:\\Program\ Files\\Vim/vimfiles,C:\\Program\ Files\\Vim\\vim91,C:\\Program\ Files\\Vim\\vim91\\pack\\dist\\opt\\matchit,~/vimfiles/after,C:\\Program\ Files\\Vim/vimfiles/after
 set scrolloff=2
@@ -87,6 +88,7 @@ set splitbelow
 set splitright
 set timeoutlen=500
 set wildmenu
+set window=48
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -100,8 +102,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 vimrc
+badd +25 vimrc
 badd +1 .vimrc.swp
+badd +1 README.md
+badd +1 learnsession.vim
+badd +1 .netrwhist
+badd +1 .gitmodules
+badd +990 /Program\ Files/Vim/vim91/doc/windows.txt
+badd +1 pack/mycolors/opt/papercolor-theme/colors/PaperColor.vim
 argglobal
 %argdel
 edit vimrc
@@ -125,8 +133,7 @@ exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
 argglobal
 enew | setl bt=help
-help 22.1@en
-balt vimrc
+help :helptags@en
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -264,12 +271,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 134 - ((44 * winheight(0) + 23) / 47)
+let s:l = 218 - ((24 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 134
-normal! 016|
+keepjumps 218
+normal! 0
 lcd ~/vimfiles
 wincmd w
 argglobal
@@ -422,13 +429,14 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 28 - ((27 * winheight(0) + 23) / 47)
+let s:l = 16 - ((15 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 28
-normal! 015|
+keepjumps 16
+normal! 0
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 96 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 95 + 96) / 192)
 tabnext 1
