@@ -28,6 +28,7 @@ set termguicolors
 set background=dark
 colorscheme PaperColor
 
+let g:netrw_banner=0
 let g:netrw_browse_split=4
 let g:netrw_liststyle=3
 let g:netrw_preview=1
@@ -50,6 +51,7 @@ set ruler
 set scrolloff=2			  " always keep a 2 lines around the cursor
 set sessionoptions+=unix,slash	  " force saving session file format to unix
 set shell=pwsh
+set shellslash
 set shiftwidth=2 softtabstop=2 noexpandtab
 set smartindent
 set splitbelow splitright
