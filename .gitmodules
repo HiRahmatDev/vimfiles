@@ -1,6 +1,3 @@
-[submodule "colorscheme gruvbox"]
-	path = pack/colors/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
 [submodule "colorscheme PaperColor"]
 	path = pack/colors/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
