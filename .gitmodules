@@ -1,3 +1,6 @@
 [submodule "colorscheme PaperColor"]
 	path = pack/colors/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "tpope/vim-fugitive"]
+	path = pack/tpope/start/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
