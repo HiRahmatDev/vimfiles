@@ -7,6 +7,13 @@ set nocompatible
 syntax enable
 filetype plugin indent on
 
+" If you forget what is this, type this :h 05.2, 142gg (line 142)
+if has('syntax') && has('eval')
+  " built-in vim package 'matchinit' is make the command '%' more powerful
+  " require 'filetype plugin on'
+  packadd! matchit
+endif
+
 let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default': {
@@ -43,33 +50,23 @@ set shell=pwsh
 set shiftwidth=2 softtabstop=2 noexpandtab
 set smartindent
 set splitbelow splitright
+set wildignore=*/node_modules/*,*/.next/*,*/.git/*
 set wildmenu
+set wildoptions=pum
 
 " force EOL to LF
-set fileformat=unix
-set fileformats=unix
+set fileformats=unix,dos
 
 " ----- My Mappings ------
 " set timeout	    " default is on
 set timeoutlen=500   " in ms. Because of nottimeout, this applied to mappings & keycodes
 
-" If you forget what is this, type this :h 05.2, 142gg (line 142)
-if has('syntax') && has('eval')
-  " built-in vim package 'matchinit' is make the command '%' more powerful
-  " require 'filetype plugin on'
-  packadd! matchit
-endif
-
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Lexplore
-" augroup END
-
 " Normal mode mapping
 nnoremap <Leader>" i"<Esc>ea"<Esc>
 nnoremap <Leader>' i'<Esc>ea'<Esc>
 nnoremap ff :20Lexplore<CR>
-nnoremap <Leader>r :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
+nnoremap <Leader>V :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
+nnoremap <Leader>v :e $MYVIMRC<CR>
 
 " Insert mode mapping
 inoremap jk <Esc>
