@@ -14,7 +14,8 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
-let g:airline_theme='wombat'
+let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enabled = 1
 
 let g:PaperColor_Theme_Options = {
   \   'theme': {
