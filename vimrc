@@ -38,6 +38,7 @@ let g:netrw_altv=1
 
 set backspace=indent,start
 set display=truncate
+set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 set nohlsearch incsearch
@@ -59,9 +60,6 @@ set splitbelow splitright
 set wildignore=*/node_modules/*,*/.next/*,*/.git/*
 set wildmenu
 set wildoptions=pum
-
-" force EOL to LF
-set fileformats=unix,dos
 
 " ----- My Mappings ------
 " set timeout	    " default is on
