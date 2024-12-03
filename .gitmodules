@@ -11,3 +11,6 @@
 [submodule "vim-airline/vim-airline-themes"]
 	path = pack/vim-airline/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "tpope/vim-vinegar"]
+	path = pack/tpope/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar.git
