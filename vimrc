@@ -40,7 +40,6 @@ let g:netrw_altv=1
 set backspace=indent,start
 set display=truncate
 set fileformats=unix,dos
-set fillchars-=vert:\|
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 set nohlsearch incsearch
