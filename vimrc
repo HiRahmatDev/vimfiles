@@ -1,7 +1,8 @@
 " I comment this because I don't like the default configs from vim.
 " source $VIMRUNTIME/defaults.vim    " Run defaults.vim
 
-" ----- My configs -----
+" ------------------------------- My configs -----------------------------------
+
 set nocompatible
 
 syntax enable
@@ -39,14 +40,17 @@ let g:netrw_altv=1
 set backspace=indent,start
 set display=truncate
 set fileformats=unix,dos
+set fillchars-=vert:\|
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 set nohlsearch incsearch
 set laststatus=2
 set mouse=
-set nrformats-=octal		  " avoid octal behavior when inc or dec number (CTRL-A or CTRL-X)
+set nrformats-=octal		  " avoid octal behavior when inc or dec
+"				    number (CTRL-A or CTRL-X)
 set nowrap sidescroll=5
 set noshowmode
+set noswapfile
 set number relativenumber
 set path+=**
 set ruler
@@ -57,13 +61,17 @@ set shellslash
 set shiftwidth=2 softtabstop=2 noexpandtab
 set smartindent
 set splitbelow splitright
+set textwidth=80
 set wildignore=*/node_modules/*,*/.next/*,*/.git/*
 set wildmenu
 set wildoptions=pum
 
-" ----- My Mappings ------
-" set timeout	    " default is on
-set timeoutlen=500   " in ms. Because of nottimeout, this applied to mappings & keycodes
+" ------------------------------- My mappings ----------------------------------
+" TODO: need separate this mappings into modular file
+
+" set timeout		" default is on
+set timeoutlen=500	" in ms. Because of nottimeout, this applied to mappings
+"			  & keycodes
 
 " Normal mode mapping
 nnoremap <Leader>" i"<Esc>ea"<Esc>
