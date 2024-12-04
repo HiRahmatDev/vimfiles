@@ -1,19 +1,23 @@
 [submodule "colorscheme PaperColor"]
 	path = pack/colors/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
-
+	shallow = true
 [submodule "tpope/vim-fugitive"]
 	path = pack/tpope/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+	shallow = true
 [submodule "vim-airline/vim-airline"]
 	path = pack/vim-airline/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+	shallow = true
 [submodule "vim-airline/vim-airline-themes"]
 	path = pack/vim-airline/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+	shallow = true
 [submodule "tpope/vim-vinegar"]
 	path = pack/tpope/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+	shallow = true
 [submodule "linters/ALE"]
 	path = pack/linters/start/ale
 	url = https://github.com/dense-analysis/ale.git
