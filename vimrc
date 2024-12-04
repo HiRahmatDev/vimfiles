@@ -37,28 +37,29 @@ let g:netrw_preview=1
 let g:netrw_alto=0
 let g:netrw_altv=1
 
+set autoindent smartindent
 set backspace=indent,start
 set display=truncate
 set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
+set formatoptions+=rojn
 set nohlsearch incsearch
 set laststatus=2
 set mouse=
-set nrformats-=octal		  " avoid octal behavior when inc or dec
-"				    number (CTRL-A or CTRL-X)
+set nrformats-=octal              " avoid octal behavior when inc or dec number
+                                  " (CTRL-A or CTRL-X)
 set nowrap sidescroll=5
 set noshowmode
 set noswapfile
 set number relativenumber
 set path+=**
 set ruler
-set scrolloff=2			  " always keep a 2 lines around the cursor
-set sessionoptions+=unix,slash	  " force saving session file format to unix
+set scrolloff=2                   " always keep a 2 lines around the cursor
+set sessionoptions+=unix,slash    " force saving session file format to unix
 set shell=pwsh
 set shellslash
-set shiftwidth=2 softtabstop=2 noexpandtab
-set smartindent
+set shiftwidth=2 softtabstop=2 expandtab
 set splitbelow splitright
 set textwidth=80
 set wildignore=*/node_modules/*,*/.next/*,*/.git/*
@@ -68,9 +69,9 @@ set wildoptions=pum
 " ------------------------------- My mappings ----------------------------------
 " TODO: need separate this mappings into modular file
 
-" set timeout		" default is on
-set timeoutlen=500	" in ms. Because of nottimeout, this applied to mappings
-"			  & keycodes
+" set timeout           " default is on
+set timeoutlen=500      " in ms. Because of nottimeout, this applied to mappings
+                        " & keycodes
 
 " Normal mode mapping
 nnoremap <Leader>" i"<Esc>ea"<Esc>
