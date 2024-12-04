@@ -39,6 +39,8 @@ let g:netrw_alto = 0
 let g:netrw_altv = 1
 let g:netrw_usetab = 1
 
+let g:ale_completion_enabled = 1
+
 set autoindent smartindent
 set backspace=indent,start
 set display=truncate
