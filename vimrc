@@ -1,3 +1,4 @@
+" Note: this configs is for vim windows
 " I comment this because I don't like the default configs from vim.
 " source $VIMRUNTIME/defaults.vim    " Run defaults.vim
 
@@ -30,12 +31,13 @@ set termguicolors
 set background=dark
 colorscheme PaperColor
 
-let g:netrw_banner=0
-let g:netrw_browse_split=4
-let g:netrw_liststyle=3
-let g:netrw_preview=1
-let g:netrw_alto=0
-let g:netrw_altv=1
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_preview = 1
+let g:netrw_alto = 0
+let g:netrw_altv = 1
+let g:netrw_usetab = 1
 
 set autoindent smartindent
 set backspace=indent,start
@@ -43,7 +45,7 @@ set display=truncate
 set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
-set formatoptions+=rojn
+set formatoptions+=rnj
 set incsearch hlsearch
 set laststatus=2
 set mouse=
@@ -78,9 +80,27 @@ set timeoutlen=500      " in ms. Because of nottimeout, this applied to mappings
 let g:mapleader = ';'   " replace <Leader> from '\' to ';'
 
 " Normal mode mapping
+
+function! IsNetrwOpen()
+  for w in range(1, winnr('$'))
+    if getwinvar(w, '&filetype') ==# 'netrw'
+      return 1
+    endif
+  endfor
+  return 0
+endfunction
+
+function! ToggleNetrw()
+  if IsNetrwOpen()
+    close | echo expand('%')
+  else
+    20 Lex | e .
+  endif
+endfunction
+
+nnoremap ff :call ToggleNetrw()<CR>
 nnoremap <Leader>" i"<Esc>ea"<Esc>
 nnoremap <Leader>' i'<Esc>ea'<Esc>
-nnoremap ff :20Lexplore<CR>
 nnoremap <Leader>V :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>t :bnext<CR>
