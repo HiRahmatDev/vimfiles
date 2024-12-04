@@ -22,3 +22,7 @@
 	path = pack/linters/start/ale
 	url = https://github.com/dense-analysis/ale.git
 	shallow = true
+[submodule "rbong/vim-flog"]
+	path = pack/rbong/start/vim-flog
+	url = https://github.com/rbong/vim-flog
+	shallow = true

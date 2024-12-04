@@ -57,8 +57,10 @@ set path+=**
 set ruler
 set scrolloff=2                   " always keep a 2 lines around the cursor
 set sessionoptions+=unix,slash    " force saving session file format to unix
-set shell=pwsh
-set shellslash
+" These two options 'shell=pwsh' & 'shellslash' is not compatible with
+" rbong/vim-flog
+" set shell=pwsh
+" set shellslash
 set shiftwidth=2 softtabstop=2 expandtab
 set splitbelow splitright
 set textwidth=80
