@@ -14,3 +14,6 @@
 [submodule "tpope/vim-vinegar"]
 	path = pack/tpope/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "rbong/vim-flog"]
+	path = pack/rbong/start/vim-flog
+	url = https://github.com/rbong/vim-flog
