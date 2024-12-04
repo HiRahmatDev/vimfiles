@@ -44,7 +44,7 @@ set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 set formatoptions+=rojn
-set nohlsearch incsearch
+set incsearch hlsearch
 set laststatus=2
 set mouse=
 set nrformats-=octal              " avoid octal behavior when inc or dec number
@@ -72,6 +72,8 @@ set wildoptions=pum
 " set timeout           " default is on
 set timeoutlen=500      " in ms. Because of nottimeout, this applied to mappings
                         " & keycodes
+
+let g:mapleader = ';'   " replace <Leader> from '\' to ';'
 
 " Normal mode mapping
 nnoremap <Leader>" i"<Esc>ea"<Esc>
