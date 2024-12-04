@@ -83,6 +83,8 @@ nnoremap <Leader>V :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
+nnoremap <Leader>c :bd<CR>
+nnoremap <Leader>bo :Bo<CR>
 
 " Insert mode mapping
 inoremap jk <Esc>
