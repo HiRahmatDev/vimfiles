@@ -46,7 +46,7 @@ set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 set formatoptions+=rnj
-set incsearch hlsearch
+set incsearch nohlsearch
 set laststatus=2
 set mouse=
 set nrformats-=octal              " avoid octal behavior when inc or dec number
@@ -84,17 +84,20 @@ let g:mapleader = ';'   " replace <Leader> from '\' to ';'
 function! IsNetrwOpen()
   for w in range(1, winnr('$'))
     if getwinvar(w, '&filetype') ==# 'netrw'
-      return 1
+      return w
     endif
   endfor
+
   return 0
 endfunction
 
 function! ToggleNetrw()
-  if IsNetrwOpen()
-    close | echo expand('%')
+  let netrw_window = IsNetrwOpen()
+
+  if netrw_window
+    exec netrw_window . "wincmd w" |  silent! close
   else
-    20 Lex | e .
+    Lexplore | vert res 30 | exec 'normal I' | exec 'normal I'
   endif
 endfunction
 
