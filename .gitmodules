@@ -14,3 +14,7 @@
 [submodule "tpope/vim-vinegar"]
 	path = pack/tpope/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "linters/ALE"]
+	path = pack/linters/start/ale
+	url = https://github.com/dense-analysis/ale.git
+	shallow = true
