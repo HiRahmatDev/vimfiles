@@ -43,6 +43,7 @@ let g:ale_completion_enabled = 1
 
 set autoindent smartindent
 set backspace=indent,start
+set cursorline
 set display=truncate
 set fileformats=unix,dos
 set fillchars-=eob:~
@@ -112,6 +113,10 @@ nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
 nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>bo :Bo<CR>
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 
 " Insert mode mapping
 inoremap jk <Esc>
