@@ -108,6 +108,7 @@ nnoremap <Leader>sv :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
 " Basic
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>f :call ToggleNetrw()<CR>
 " Git / graph
 nnoremap <Leader>gs :Git<CR>
