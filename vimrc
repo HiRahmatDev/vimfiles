@@ -112,6 +112,7 @@ nnoremap <Leader>f :call ToggleNetrw()<CR>
 " Git / graph
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gg :Flog<CR>
+nnoremap <Leader>gp :Git push<CR>
 " Buffer
 nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
