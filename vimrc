@@ -83,8 +83,6 @@ set timeoutlen=500      " in ms. Because of nottimeout, this applied to mappings
 
 let g:mapleader = ';'   " replace <Leader> from '\' to ';'
 
-" Normal mode mapping
-
 function! IsNetrwOpen()
   for w in range(1, winnr('$'))
     if getwinvar(w, '&filetype') ==# 'netrw'
@@ -105,15 +103,21 @@ function! ToggleNetrw()
   endif
 endfunction
 
-nnoremap ff :call ToggleNetrw()<CR>
-nnoremap <Leader>" i"<Esc>ea"<Esc>
-nnoremap <Leader>' i'<Esc>ea'<Esc>
-nnoremap <Leader>V :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
-nnoremap <Leader>v :e $MYVIMRC<CR>
+" vimrc
+nnoremap <Leader>sv :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
+nnoremap <Leader>ev :vs $MYVIMRC<CR>
+" Basic
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>f :call ToggleNetrw()<CR>
+" Git / graph
+nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gg :Flog<CR>
+" Buffer
 nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
 nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>bo :Bo<CR>
+" Movement
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
