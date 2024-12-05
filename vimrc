@@ -124,3 +124,5 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap <C-W> <C-G>u<C-W>
 inoremap <C-U> <C-G>u<C-U>
+inoremap UU <Esc>viwUA
+inoremap uu <Esc>viwuA
