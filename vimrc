@@ -40,6 +40,7 @@ let g:netrw_altv = 1
 let g:netrw_usetab = 1
 
 let g:ale_completion_enabled = 1
+let g:ale_linters_explicit = 1
 
 set autoindent smartindent
 set backspace=indent,start
