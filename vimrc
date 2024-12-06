@@ -17,6 +17,33 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_preview = 1
+let g:netrw_alto = 0
+let g:netrw_altv = 1
+let g:netrw_usetab = 1
+let g:netrw_list_hide = '.git/'
+
+let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 1
+let g:ale_set_balloons = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+  \   'typescript': ['eslint', 'tsserver'],
+  \   'javascript': ['eslint', 'standard'],
+  \   'typescriptreact': ['eslint', 'tsserver'],
+  \   'javascriptreact': ['eslint', 'standard']
+  \ }
+let g:ale_fixers = {
+  \   'typescript': ['eslint', 'prettier'],
+  \   'javascript': ['eslint', 'prettier'],
+  \   'typescriptreact': ['eslint', 'prettier'],
+  \   'javascriptreact': ['eslint', 'prettier']
+  \ }
+
 let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -31,18 +58,6 @@ let g:PaperColor_Theme_Options = {
 set termguicolors
 set background=dark
 colorscheme PaperColor
-
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_liststyle = 3
-let g:netrw_preview = 1
-let g:netrw_alto = 0
-let g:netrw_altv = 1
-let g:netrw_usetab = 1
-let g:netrw_list_hide = '.git/'
-
-let g:ale_completion_enabled = 1
-let g:ale_linters_explicit = 1
 
 set autoindent smartindent
 set backspace=indent,start
