@@ -3,6 +3,7 @@
 " source $VIMRUNTIME/defaults.vim    " Run defaults.vim
 
 " ------------------------------- My configs -----------------------------------
+" TODO: need separate this mappings, func, etc. into modular file
 
 set nocompatible
 
@@ -76,7 +77,6 @@ set wildmenu
 set wildoptions=pum
 
 " ------------------------------- My mappings ----------------------------------
-" TODO: need separate this mappings into modular file
 
 " set timeout           " default is on
 set timeoutlen=500      " in ms. Because of nottimeout, this applied to mappings
