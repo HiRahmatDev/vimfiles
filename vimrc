@@ -7,16 +7,6 @@
 
 set nocompatible
 
-syntax enable
-filetype plugin indent on
-
-" If you forget what is this, type this :h 05.2, 142gg (line 142)
-if has('syntax') && has('eval')
-  " built-in vim package 'matchinit' is make the command '%' more powerful
-  " require 'filetype plugin on'
-  packadd! matchit
-endif
-
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_liststyle = 3
@@ -54,6 +44,15 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
+syntax enable
+filetype plugin indent on
+
+" If you forget what is this, type this :h 05.2, 142gg (line 142)
+if has('syntax') && has('eval')
+  " built-in vim package 'matchinit' is make the command '%' more powerful
+  " require 'filetype plugin on'
+  packadd! matchit
+endif
 
 set termguicolors
 set background=dark
@@ -109,13 +108,17 @@ function! IsNetrwOpen()
   return 0
 endfunction
 
+function! OpenNetrw()
+  Lexplore | vert res 30 | exec 'normal I' | exec 'normal I'
+endfunction
+
 function! ToggleNetrw()
   let netrw_window = IsNetrwOpen()
 
   if netrw_window
     exec netrw_window . "wincmd w" |  silent! close
   else
-    Lexplore | vert res 30 | exec 'normal I' | exec 'normal I'
+    call OpenNetrw()
   endif
 endfunction
 
