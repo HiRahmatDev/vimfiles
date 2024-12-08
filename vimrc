@@ -17,33 +17,38 @@ let g:netrw_usetab = 1
 let g:netrw_list_hide = '.git/'
 
 let g:ale_completion_enabled = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_delay = 1
-let g:ale_set_balloons = 1
+let g:ale_lint_delay = 100
 let g:ale_linters_explicit = 1
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_sign_info = 'ℹ️'
+
+let ts_linters = ['eslint', 'tsserver']
+let js_fixers = ['eslint', 'prettier']
+
 let g:ale_linters = {
-  \   'typescript': ['eslint', 'tsserver'],
-  \   'javascript': ['eslint', 'standard'],
-  \   'typescriptreact': ['eslint', 'tsserver'],
-  \   'javascriptreact': ['eslint', 'standard']
+  \   'vim': ['vimls'],
+  \   'json': ['eslint'],
+  \   'javascript': ['eslint'],
+  \   'javascriptreact': ['eslint'],
+  \   'typescript': ts_linters,
+  \   'typescriptreact': ts_linters
   \ }
+
 let g:ale_fixers = {
-  \   'typescript': ['eslint', 'prettier'],
-  \   'javascript': ['eslint', 'prettier'],
-  \   'typescriptreact': ['eslint', 'prettier'],
-  \   'javascriptreact': ['eslint', 'prettier']
+  \   '*': ['remove_trailing_lines'],
+  \   'javascript': js_fixers,
+  \   'javascriptreact': js_fixers,
+  \   'typescript': js_fixers,
+  \   'typescriptreact': js_fixers,
+  \   'css': ['prettier'],
+  \   'json': ['prettier']
   \ }
 
 let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 1
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 0
-  \     }
-  \   }
-  \ }
 syntax enable
 filetype plugin indent on
 
@@ -108,6 +113,17 @@ function! IsNetrwOpen()
   return 0
 endfunction
 
+" Basic
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+inoremap jk <Esc>
+inoremap kj <Esc>
+inoremap <C-W> <C-G>u<C-W>
+inoremap <C-U> <C-G>u<C-U>
+inoremap UU <Esc>viwUA
+inoremap uu <Esc>viwuA
+
+" Netrw
 function! OpenNetrw()
   Lexplore | vert res 30 | exec 'normal I' | exec 'normal I'
 endfunction
@@ -121,23 +137,23 @@ function! ToggleNetrw()
     call OpenNetrw()
   endif
 endfunction
+nnoremap <Leader>f :call ToggleNetrw()<CR>
 
-" vimrc
+" Vimrc
 nnoremap <Leader>sv :so $MYVIMRC<CR>:echo 'vimrc successfully reloaded'<CR>
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
-" Basic
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>f :call ToggleNetrw()<CR>
+
 " Git / graph
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gg :Flog<CR>
 nnoremap <Leader>gp :Git push<CR>
+
 " Buffer
 nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
 nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>bo :Bo<CR>
+
 " Movement
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
@@ -145,11 +161,11 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-T> <C-W>t
 nnoremap <C-B> <C-W>b
+" Replace netrw-c-l (refresh) to move right
+au FileType netrw nnoremap <buffer> <C-L> <C-W>l
 
-" Insert mode mapping
-inoremap jk <Esc>
-inoremap kj <Esc>
-inoremap <C-W> <C-G>u<C-W>
-inoremap <C-U> <C-G>u<C-U>
-inoremap UU <Esc>viwUA
-inoremap uu <Esc>viwuA
+" ALE
+nnoremap <Leader>F <Plug>(ale_fix)
+nnoremap <Leader>aj <Plug>(ale_next)
+nnoremap <Leader>ak <Plug>(ale_previous)
+inoremap <C-Space> <Plug>(ale_complete)
