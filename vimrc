@@ -71,7 +71,8 @@ set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
 set formatoptions+=rnj
-set incsearch nohlsearch
+set ignorecase smartcase
+set incsearch hlsearch
 set laststatus=2
 set mouse=
 set nrformats-=octal              " avoid octal behavior when inc or dec number
@@ -82,7 +83,7 @@ set noswapfile
 set number relativenumber
 set path+=**
 set ruler
-set scrolloff=2                   " always keep a 2 lines around the cursor
+set scrolloff=8                   " always keep 8 lines around the cursor
 set sessionoptions+=unix,slash    " force saving session file format to unix
 " These two options 'shell=pwsh' & 'shellslash' is not compatible with
 " rbong/vim-flog
@@ -116,6 +117,8 @@ endfunction
 " Basic
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>c :close<CR>
+nnoremap <Leader>h :noh<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap <C-W> <C-G>u<C-W>
@@ -151,18 +154,7 @@ nnoremap <Leader>gp :Git push<CR>
 " Buffer
 nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
-nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>bo :Bo<CR>
-
-" Movement
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-nnoremap <C-T> <C-W>t
-nnoremap <C-B> <C-W>b
-" Replace netrw-c-l (refresh) to move right
-au FileType netrw nnoremap <buffer> <C-L> <C-W>l
 
 " ALE
 nnoremap <Leader>F <Plug>(ale_fix)
