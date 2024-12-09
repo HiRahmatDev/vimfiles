@@ -22,3 +22,7 @@
 	path = pack/rbong/start/vim-flog
 	url = https://github.com/rbong/vim-flog
 	shallow = true
+[submodule "sheerun/vim-polyglot"]
+	path = pack/syntax/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+	shallow = true
