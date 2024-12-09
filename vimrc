@@ -94,7 +94,7 @@ set sessionoptions+=unix,slash    " force saving session file format to unix
 set shiftwidth=2 softtabstop=2 expandtab
 set splitbelow splitright
 set textwidth=80
-set wildignore=*/node_modules/*,*/.next/*,*/.git/*
+set wildignore=*/node_modules/*,*/.next/*,*/build/*,*/.git/*
 set wildmenu
 set wildoptions=pum
 
