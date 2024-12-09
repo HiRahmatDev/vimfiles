@@ -16,6 +16,7 @@ let g:netrw_altv = 1
 let g:netrw_usetab = 1
 let g:netrw_list_hide = '.git/'
 
+let g:ale_floating_preview = 1
 let g:ale_completion_enabled = 1
 let g:ale_lint_delay = 100
 let g:ale_linters_explicit = 1
@@ -24,24 +25,24 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_sign_info = 'ℹ️'
 
-let ts_linters = ['eslint', 'tsserver']
-let js_fixers = ['eslint', 'prettier']
+let jsts_linters = ['tsserver', 'eslint']
+let jsts_fixers = ['prettier', 'eslint']
 
 let g:ale_linters = {
   \   'vim': ['vimls'],
   \   'json': ['eslint'],
-  \   'javascript': ['eslint'],
-  \   'javascriptreact': ['eslint'],
-  \   'typescript': ts_linters,
-  \   'typescriptreact': ts_linters
+  \   'javascript': jsts_linters,
+  \   'typescript': jsts_linters,
+  \   'javascriptreact': jsts_linters,
+  \   'typescriptreact': jsts_linters
   \ }
 
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines'],
-  \   'javascript': js_fixers,
-  \   'javascriptreact': js_fixers,
-  \   'typescript': js_fixers,
-  \   'typescriptreact': js_fixers,
+  \   'javascript': jsts_fixers,
+  \   'typescript': jsts_fixers,
+  \   'javascriptreact': jsts_fixers,
+  \   'typescriptreact': jsts_fixers,
   \   'css': ['prettier'],
   \   'json': ['prettier']
   \ }
@@ -160,4 +161,12 @@ nnoremap <Leader>bo :Bo<CR>
 nnoremap <Leader>F <Plug>(ale_fix)
 nnoremap <Leader>aj <Plug>(ale_next)
 nnoremap <Leader>ak <Plug>(ale_previous)
+nnoremap <C-Space> <Plug>(ale_hover)
 inoremap <C-Space> <Plug>(ale_complete)
+
+augroup JSTSMappings
+  autocmd!
+  autocmd FileType javascript,typescript,javascriptreact,typescriptreact
+    \ nnoremap <C-]> <Plug>(ale_go_to_definition)
+augroup END
+
