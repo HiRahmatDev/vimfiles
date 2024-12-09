@@ -151,6 +151,7 @@ nnoremap <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gg :Flog -all<CR>
 nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gb :Git blame<CR>
 
 " Buffer
 nnoremap <Leader>t :bnext<CR>
