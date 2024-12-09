@@ -149,7 +149,7 @@ nnoremap <Leader>ev :vs $MYVIMRC<CR>
 
 " Git / graph
 nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>gg :Flog<CR>
+nnoremap <Leader>gg :Flog -all<CR>
 nnoremap <Leader>gp :Git push<CR>
 
 " Buffer
