@@ -16,6 +16,7 @@ let g:netrw_altv = 1
 let g:netrw_usetab = 1
 let g:netrw_list_hide = '.git/'
 
+let g:ale_lint_on_text_changed = 'always'
 let g:ale_floating_preview = 1
 let g:ale_completion_enabled = 1
 let g:ale_lint_delay = 100
