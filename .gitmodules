@@ -26,3 +26,6 @@
 	path = pack/syntax/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
 	shallow = true
+[submodule "kien/ctrlp"]
+	path = pack/utils/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
