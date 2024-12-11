@@ -16,15 +16,18 @@ let g:netrw_altv = 1
 let g:netrw_usetab = 1
 let g:netrw_list_hide = '.git/'
 
-let g:ale_lint_on_text_changed = 'always'
 let g:ale_floating_preview = 1
 let g:ale_completion_enabled = 1
-let g:ale_lint_delay = 100
+let g:ale_lint_delay = 0
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
+let g:ale_virtualtext_cursor = 'disabled'
+let g:ale_echo_msg_format = '%linter%(%code%): %s'
+let g:ale_virtualtext_prefix = '%comment% %linter%(%code%): '
 let g:ale_linters_explicit = 1
 
-let g:ale_sign_error = '❌'
+let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠️'
-let g:ale_sign_info = 'ℹ️'
+let g:ale_sign_info = 'i'
 
 let jsts_linters = ['tsserver', 'eslint']
 let jsts_fixers = ['prettier', 'eslint']
@@ -32,6 +35,7 @@ let jsts_fixers = ['prettier', 'eslint']
 let g:ale_linters = {
   \   'vim': ['vimls'],
   \   'json': ['eslint'],
+  \   'jsonc': ['eslint'],
   \   'javascript': jsts_linters,
   \   'typescript': jsts_linters,
   \   'javascriptreact': jsts_linters,
@@ -65,6 +69,11 @@ set termguicolors
 set background=dark
 colorscheme PaperColor
 
+augroup vimrc
+  autocmd!
+  autocmd FileType vim setlocal textwidth=80
+augroup END
+
 set autoindent smartindent
 set backspace=indent,start
 set cursorline
@@ -78,7 +87,7 @@ set incsearch hlsearch
 set laststatus=2
 set mouse=
 set nrformats-=octal              " avoid octal behavior when inc or dec number
-                                  " (CTRL-A or CTRL-X)
+                                  "                       (CTRL-A or CTRL-X)
 set nowrap sidescroll=5
 set noshowmode
 set noswapfile
@@ -87,13 +96,8 @@ set path+=**
 set ruler
 set scrolloff=8                   " always keep 8 lines around the cursor
 set sessionoptions+=unix,slash    " force saving session file format to unix
-" These two options 'shell=pwsh' & 'shellslash' is not compatible with
-" rbong/vim-flog
-" set shell=pwsh
-" set shellslash
 set shiftwidth=2 softtabstop=2 expandtab
 set splitbelow splitright
-set textwidth=80
 set wildignore=*/node_modules/*,*/.next/*,*/build/*,*/.git/*
 set wildmenu
 set wildoptions=pum
@@ -161,8 +165,9 @@ nnoremap <Leader>bo :Bo<CR>
 
 " ALE
 nnoremap <Leader>F <Plug>(ale_fix)
-nnoremap <Leader>aj <Plug>(ale_next)
-nnoremap <Leader>ak <Plug>(ale_previous)
+nnoremap <Leader>d <Plug>(ale_detail)
+nnoremap <C-J> <Plug>(ale_next)
+nnoremap <C-K> <Plug>(ale_previous)
 nnoremap <C-Space> <Plug>(ale_hover)
 inoremap <C-Space> <Plug>(ale_complete)
 
