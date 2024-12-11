@@ -159,8 +159,10 @@ nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gb :Git blame<CR>
 
 " Buffer
+nnoremap <Leader>b :b 
 nnoremap <Leader>t :bnext<CR>
 nnoremap <Leader>T :bprevious<CR>
+nnoremap <Leader>bd :bdelete<CR>
 nnoremap <Leader>bo :Bo<CR>
 
 " ALE
