@@ -29,3 +29,7 @@
 [submodule "kien/ctrlp"]
 	path = pack/utils/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "Eliot00/git-lens"]
+	path = pack/utils/start/git-lens.vim
+	url = https://github.com/Eliot00/git-lens.vim.git
+	shallow = true

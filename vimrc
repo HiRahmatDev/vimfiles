@@ -16,6 +16,10 @@ let g:netrw_altv = 1
 let g:netrw_usetab = 1
 let g:netrw_list_hide = '.git/'
 
+if has('vim9script')
+  let g:GIT_LENS_ENABLED = v:true
+endif
+
 let g:ale_floating_preview = 1
 let g:ale_completion_enabled = 1
 let g:ale_lint_delay = 0
