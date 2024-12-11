@@ -57,6 +57,7 @@ let g:ale_fixers = {
   \ }
 
 let g:airline_theme = 'wombat'
+" let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 1
 
 syntax enable
@@ -71,7 +72,7 @@ endif
 
 set termguicolors
 set background=dark
-colorscheme PaperColor
+colorscheme ayu
 
 augroup vimrc
   autocmd!

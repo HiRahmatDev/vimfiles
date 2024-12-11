@@ -33,3 +33,7 @@
 	path = pack/utils/start/git-lens.vim
 	url = https://github.com/Eliot00/git-lens.vim.git
 	shallow = true
+[submodule "colors/ayu-vim"]
+	path = pack/colors/start/ayu-vim
+	url = https://github.com/ayu-theme/ayu-vim.git
+	shallow = true
