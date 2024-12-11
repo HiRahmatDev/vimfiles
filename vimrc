@@ -56,8 +56,36 @@ let g:ale_fixers = {
   \   'json': ['prettier']
   \ }
 
-let g:airline_theme = 'wombat'
-" let g:airline_theme = 'wombat'
+let g:ale_completion_symbols = {
+  \   'text': '',
+  \   'method': '',
+  \   'function': '',
+  \   'constructor': '',
+  \   'field': '',
+  \   'variable': '',
+  \   'class': '',
+  \   'interface': '',
+  \   'module': '',
+  \   'property': '',
+  \   'unit': 'v',
+  \   'value': 'v',
+  \   'enum': 't',
+  \   'keyword': 'v',
+  \   'snippet': 'v',
+  \   'color': 'v',
+  \   'file': 'v',
+  \   'reference': 'v',
+  \   'folder': 'v',
+  \   'enum_member': 'm',
+  \   'constant': 'm',
+  \   'struct': 't',
+  \   'event': 'v',
+  \   'operator': 'f',
+  \   'type_parameter': 'p',
+  \   '<default>': 'v'
+  \ }
+
+let g:airline_theme = 'google_dark'
 let g:airline#extensions#tabline#enabled = 1
 
 syntax enable
