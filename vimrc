@@ -129,7 +129,7 @@ set path+=**
 set ruler
 set scrolloff=8                   " always keep 8 lines around the cursor
 set sessionoptions+=unix,slash    " force saving session file format to unix
-set shiftwidth=2 softtabstop=2 expandtab
+set shiftwidth=2 tabstop=2 expandtab
 set splitbelow splitright
 set wildignore=*/node_modules/*,*/.next/*,*/build/*,*/.git/*
 set wildmenu
