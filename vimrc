@@ -114,7 +114,7 @@ set display=truncate
 set fileformats=unix,dos
 set fillchars-=eob:~
 set fillchars+=eob:\ 
-set formatoptions+=rnj
+set formatoptions+=nj
 set ignorecase smartcase
 set incsearch hlsearch
 set laststatus=2
