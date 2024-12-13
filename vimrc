@@ -143,16 +143,6 @@ set timeoutlen=500      " in ms. Because of nottimeout, this applied to mappings
 
 let g:mapleader = ';'   " replace <Leader> from '\' to ';'
 
-function! IsNetrwOpen()
-  for w in range(1, winnr('$'))
-    if getwinvar(w, '&filetype') ==# 'netrw'
-      return w
-    endif
-  endfor
-
-  return 0
-endfunction
-
 " Basic
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -166,6 +156,16 @@ inoremap UU <Esc>viwUA
 inoremap uu <Esc>viwuA
 
 " Netrw
+function! IsNetrwOpen()
+  for w in range(1, winnr('$'))
+    if getwinvar(w, '&filetype') ==# 'netrw'
+      return w
+    endif
+  endfor
+
+  return 0
+endfunction
+
 function! OpenNetrw()
   Lexplore | vert res 30 | exec 'normal I' | exec 'normal I'
 endfunction
