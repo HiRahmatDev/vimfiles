@@ -126,7 +126,6 @@ set nowrap sidescroll=5
 set noshowmode
 set noswapfile
 set number relativenumber
-set path+=**
 set ruler
 set scrolloff=8                   " always keep 8 lines around the cursor
 set sessionoptions+=unix,slash    " force saving session file format to unix
