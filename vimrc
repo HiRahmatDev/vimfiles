@@ -105,6 +105,7 @@ colorscheme ayu
 augroup vimrc
   autocmd!
   autocmd FileType vim setlocal textwidth=80
+  autocmd TerminalOpen * setlocal nornu nonu
 augroup END
 
 set autoindent smartindent
