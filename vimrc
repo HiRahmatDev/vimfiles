@@ -102,12 +102,6 @@ set termguicolors
 set background=dark
 colorscheme ayu
 
-augroup vimrc
-  autocmd!
-  autocmd FileType vim setlocal textwidth=80
-  autocmd TerminalOpen * setlocal nornu nonu
-augroup END
-
 set autoindent smartindent
 set backspace=indent,start
 set cursorline
@@ -205,6 +199,12 @@ nnoremap <C-J> <Plug>(ale_next)
 nnoremap <C-K> <Plug>(ale_previous)
 nnoremap <C-Space> <Plug>(ale_hover)
 inoremap <C-Space> <Plug>(ale_complete)
+
+augroup vimrc
+  autocmd!
+  autocmd FileType vim setlocal textwidth=80
+  autocmd TerminalOpen * setlocal nornu nonu
+augroup END
 
 augroup JSTSMappings
   autocmd!
