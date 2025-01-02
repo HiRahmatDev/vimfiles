@@ -24,9 +24,8 @@ let g:ale_floating_preview = 1
 let g:ale_completion_enabled = 1
 let g:ale_lint_delay = 0
 let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
-let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_echo_msg_format = '%linter%(%code%): %s'
-let g:ale_virtualtext_prefix = '%comment% %linter%(%code%): '
+let g:ale_virtualtext_prefix = '🟥 %linter%(%code%): '
 let g:ale_linters_explicit = 1
 
 let g:ale_sign_error = '✗'
@@ -38,6 +37,7 @@ let jsts_fixers = ['prettier', 'eslint']
 
 let g:ale_linters = {
   \   'vim': ['vimls'],
+  \   'html': ['vscodehtml'],
   \   'json': ['eslint'],
   \   'jsonc': ['eslint'],
   \   'javascript': jsts_linters,
@@ -48,6 +48,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines'],
+  \   'html': ['prettier'],
   \   'javascript': jsts_fixers,
   \   'typescript': jsts_fixers,
   \   'javascriptreact': jsts_fixers,
