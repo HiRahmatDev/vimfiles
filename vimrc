@@ -122,7 +122,7 @@ set noshowmode
 set noswapfile
 set number relativenumber
 set ruler
-set scrolloff=3                   " always keep 8 lines around the cursor
+set scrolloff=3                   " always keep 3 lines around the cursor
 set sessionoptions+=unix,slash    " force saving session file format to unix
 set shiftwidth=2 tabstop=2 expandtab
 set splitbelow splitright
